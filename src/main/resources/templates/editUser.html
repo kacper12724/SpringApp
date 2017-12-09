@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="default">
+<head>
+<title>Edit</title>
+</head>
+<body>
+	<div layout:fragment="content" class="row">
+		<div class="col-xs-8 col-md-8">
+			<h2>Edit user</h2>
+
+			<!--  
+			<form th:action="@{/save}" th:object="${user}">
+				<input name="username" type="text" th:value="*{username}" />
+				<input name="password" type="password" th:value="*{password}" />
+				<input type="submit" />
+			</form>
+			-->
+
+
+			<form th:action="@{/edit}" th:object="${user}" method="POST">
+				<table cellpadding="2" cellspacing="2">
+					<tr>
+						<td>Username</td>
+						<td><input type="text" th:field="*{username}" /></td>
+					</tr>
+					<tr>
+						<td>Password</td>
+						<td><input type="password" th:field="*{password}" /></td>
+					</tr>
+					<tr>
+						<td>&npsp;</td>
+						<td>
+							<input type="hidden" th:field="*{id}" />
+							<input type="submit" value="Save" />
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="default">
+<head>
+<title>Users list</title>
+</head>
+<body>
+	<div layout:fragment="content" class="row">
+		<div class="col-xs-8 col-md-8">
+			<div th:if="${param.logout}">
+				<h1 style="color: blue">Logged out.</h1>
+			</div>
+			<h3>
+				<a th:href="@{/register}" class="btn btn-primary"><span
+					class="glyphicon glyphicon-plus-sign"></span>Register</a>
+			</h3>
+			<!--
+			<h3>
+				<a href="@{/login}" class="btn btn-primary"><span
+					class="glyphicon glyphicon-plus-sign"></span>Login</a>
+			</h3>
+			-->
+			<h3>
+				<a th:href="@{/welcome}" class="btn btn-primary"><span
+					class="glyphicon glyphicon-plus-sign"></span>Sign In</a>
+			</h3>
+			<h2>All users list</h2>
+			<div class="table-responsive">
+				<table class="table" id="users-table">
+					<thead>
+						<tr>
+							<th>Username</th>
+							<th>Password</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="user : ${users}">
+							<td th:text="${user.username}"></td>
+							<td th:text="${user.password}"></td>
+							<td><a th:href="${'users/edit/' + user.user_id}">Edit</a> <a
+								th:href="${'users/delete/' + user.user_id}">Delete</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
