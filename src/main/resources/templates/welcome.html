@@ -6,19 +6,25 @@
 <title>Welcome</title>
 </head>
 <body>
-	<h3 style="position:center">Welcome to main page</h3>
-   <div>
-	    Logged in user: <b th:inline="text"  class="user"> [[${#httpServletRequest.remoteUser}]] </b>
-	    <form th:action="@{/logout}" method="POST">
-	         <input type="submit" value="Logout"/>
-	    </form>
-   </div> <br/>	 
-   <table>
-	<tr th:each="article : ${userArticles}">
-	    <td th:text="${article.articleId}">Id</td>
-	    <td th:text="${article.title}">Title</td>
-	    <td th:text="${article.category}">Category</td>
-	</tr>
-   </table>
+	<h3 style="position: center">Welcome to main page</h3>
+	<div>
+		Logged in user: <b th:inline="text" class="user">
+			[[${#httpServletRequest.remoteUser}]] </b>
+		<form th:action="@{/logout}" method="POST">
+			<input type="submit" value="Logout" />
+		</form>
+	</div>
+	<br />
+	<table>
+		<tr th:each="article : ${userArticles}">
+			<td th:text="${article.articleId}">Id</td>
+			<td th:text="${article.title}">Title</td>
+			<td th:text="${article.category}">Category</td>
+		</tr>
+	</table>
+	<form th:action="@{/send_email}" method="POST">
+	<p>Wyslij maila</p>
+		<input type="submit" value="Send" />
+	</form>
 </body>
 </html>

@@ -42,7 +42,7 @@ public class UserController {
 		return "show";
 	}
 
-	@RequestMapping(value =  "/users/delete/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/users/delete/{id}", method = RequestMethod.GET)
 	public String deleteUser(@PathVariable("id") Long id){
 		userRepository.delete(userRepository.findOne(id));
 		return "redirect:/home";
