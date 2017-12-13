@@ -40,7 +40,6 @@ public class User implements Serializable {
     @NotBlank
     private String username;
     
-    @Email
     @NotBlank
     private String email;
 

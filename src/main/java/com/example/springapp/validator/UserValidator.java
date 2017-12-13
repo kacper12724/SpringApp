@@ -1,5 +1,8 @@
 package com.example.springapp.validator;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -11,6 +14,17 @@ import com.example.springapp.service.UserService;
 
 @Component
 public class UserValidator implements Validator {
+	private static Pattern emailNamePtrn = Pattern.compile(
+		    "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+	
+	public static boolean validateEmailAddress(String email){
+        Matcher mtch = emailNamePtrn.matcher(email);
+        if(mtch.matches()){
+            return true;
+        }
+        return false;
+    }
+	
     @Autowired
     private UserService userService;
 
@@ -26,7 +40,9 @@ public class UserValidator implements Validator {
         if (userService.findByUsername(user.getUsername()) != null) {
             errors.rejectValue("username", "Duplicate.user.username");
         }
-
-
+        
+        if (!validateEmailAddress(user.getEmail())){
+        	errors.rejectValue("email", "Invalid.user.email");
+        }
     }
 }
