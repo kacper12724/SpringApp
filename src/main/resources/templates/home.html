@@ -13,7 +13,7 @@
 			</div>
 			<h3>
 				<a th:href="@{/register}" class="btn btn-primary"><span
-					class="glyphicon glyphicon-plus-sign"></span>Register</a>
+					class="glyphicon glyphicon-plus-sign"></span><span th:text="#{register}"></span></a>
 			</h3>
 			<!--
 			<h3>
@@ -23,15 +23,15 @@
 			-->
 			<h3>
 				<a th:href="@{/welcome}" class="btn btn-primary"><span
-					class="glyphicon glyphicon-plus-sign"></span>Sign In</a>
+					class="glyphicon glyphicon-plus-sign" th:text="#{sign_in}"></span></a>
 			</h3>
-			<h2>All users list</h2>
+			<h2 th:text="#{all_users_list}"></h2>
 			<div class="table-responsive">
 				<table class="table" id="users-table">
 					<thead>
 						<tr>
-							<th>Username</th>
-							<th>Password</th>
+							<th><p th:text="#{username}"></p></th>
+							<th><p th:text="#{password}"></p></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -46,5 +46,7 @@
 			</div>
 		</div>
 	</div>
+	<br/><br/><br/>
+	Language : <a href="?language=en">English</a> | <a href="?language=pl">Polski</a>
 </body>
 </html>
