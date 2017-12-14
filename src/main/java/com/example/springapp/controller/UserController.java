@@ -43,20 +43,19 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/users/delete/{id}", method = RequestMethod.GET)
-	public String deleteUser(@PathVariable("id") Long id){
+	public String deleteUser(@PathVariable("id") Long id) {
 		userRepository.delete(userRepository.findOne(id));
 		return "redirect:/home";
 	}
-	
-	@RequestMapping(value =  "/users/edit/{id}", method = RequestMethod.GET)
-	public String editUserGET(@PathVariable("id") Long id, ModelMap modelMap){
+
+	@RequestMapping(value = "/users/edit/{id}", method = RequestMethod.GET)
+	public String editUserGET(@PathVariable("id") Long id, ModelMap modelMap) {
 		modelMap.put("user", userRepository.findOne(id));
 		return "editUser";
 	}
-	
-	@RequestMapping(value =  "/edit", method = RequestMethod.POST)
-	public String editUserPOST(@ModelAttribute ("user") User user,
-			ModelMap modelMap){
+
+	@RequestMapping(value = "/edit", method = RequestMethod.POST)
+	public String editUserPOST(@ModelAttribute("user") User user, ModelMap modelMap) {
 		User tmpUser = userRepository.findOne(user.getUser_id());
 		tmpUser.setPassword(user.getPassword());
 		tmpUser.setUsername(user.getUsername());
@@ -65,4 +64,3 @@ public class UserController {
 	}
 
 }
-

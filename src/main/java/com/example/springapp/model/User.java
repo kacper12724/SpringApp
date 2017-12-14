@@ -21,32 +21,30 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.example.springapp.model.Role;
 
-
-
 @Entity
 @Table(name = "user")
 @EntityListeners(AuditingEntityListener.class)
 public class User implements Serializable {
-	
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long user_id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long user_id;
 
-    @NotBlank
-    private String username;
-    
-    @NotBlank
-    private String email;
+	@NotBlank
+	private String username;
 
-    @NotBlank
-    private String password;
-    
-    @ManyToMany(cascade = CascadeType.ALL)
+	@NotBlank
+	private String email;
+
+	@NotBlank
+	private String password;
+
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles;
 
@@ -65,7 +63,7 @@ public class User implements Serializable {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	
+
 	public String getEmail() {
 		return email;
 	}
@@ -81,8 +79,7 @@ public class User implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
+
 	public Set<Role> getRoles() {
 		return roles;
 	}

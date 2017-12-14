@@ -8,7 +8,7 @@ import com.example.springapp.model.User;
 import com.example.springapp.model.Dish;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long>{
-	
+public interface UserRepository extends JpaRepository<User, Long> {
+
 	User findByUsername(String username);
 }

@@ -16,12 +16,12 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 public class Role {
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int role_id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int role_id;
 
-    @NotBlank
-    private String role;
-	
+	@NotBlank
+	private String role;
+
 	public int getRole_id() {
 		return role_id;
 	}
@@ -37,5 +37,5 @@ public class Role {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	
+
 }

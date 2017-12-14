@@ -11,7 +11,7 @@ import javax.mail.internet.MimeMessage;
 
 @Service
 public class EmailSenderImpl implements EmailSender {
-	
+
 	@Value("${spring.mail.username}")
 	private String applicationEmail;
 
@@ -24,7 +24,7 @@ public class EmailSenderImpl implements EmailSender {
 		try {
 			MimeMessageHelper helper = new MimeMessageHelper(mail, true);
 			helper.setTo(to);
-			//helper.setReplyTo("newsletter@codecouple.pl");
+			// helper.setReplyTo("newsletter@codecouple.pl");
 			helper.setFrom(applicationEmail);
 			helper.setSubject(title);
 			helper.setText(content, true);

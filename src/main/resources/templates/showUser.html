@@ -1,18 +1,17 @@
 <!DOCTYPE HTML>
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-    <head>
-        <title>Show User</title>
-    </head>
-    <body>
-        <div layout:fragment="content" class="row">
-            <div class="col-xs-8 col-md-8">
-                    <dt>Username:</dt>
-                    <dd th:text="${user.username}"></dd>
-                    <dt>Password:</dt>
-                    <dd th:text="${user.password}"></dd>
-            </div>
-        </div>
-    </body>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<title>Show User</title>
+</head>
+<body>
+	<div layout:fragment="content" class="row">
+		<div class="col-xs-8 col-md-8">
+			<dt>Username:</dt>
+			<dd th:text="${user.username}"></dd>
+			<dt>Password:</dt>
+			<dd th:text="${user.password}"></dd>
+		</div>
+	</div>
+</body>
 </html>

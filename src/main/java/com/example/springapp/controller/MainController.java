@@ -14,42 +14,41 @@ import com.example.springapp.validator.UserValidator;
 
 @Controller
 public class MainController {
-	
+
 	@Autowired
 	private UserService userService;
-	
+
 	@Autowired
-    private UserValidator userValidator;
-	
+	private UserValidator userValidator;
+
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
-	public String registerGET(ModelMap modelMap){
+	public String registerGET(ModelMap modelMap) {
 		modelMap.put("user", new User());
 		return "registerUser";
 	}
-	
+
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String registerUserPOST(@ModelAttribute ("user") User user,
-			ModelMap modelMap, BindingResult bindingResult) {
-		//userRepository.save(user);
-		
-		//userService.saveUser(user);
-		//return "redirect:/home";
-		//--------------------
+	public String registerUserPOST(@ModelAttribute("user") User user, ModelMap modelMap, BindingResult bindingResult) {
+		// userRepository.save(user);
+
+		// userService.saveUser(user);
+		// return "redirect:/home";
+		// --------------------
 		userValidator.validate(user, bindingResult);
 
-        if (bindingResult.hasErrors()) {
-            return "registerUser";
-        }
+		if (bindingResult.hasErrors()) {
+			return "registerUser";
+		}
 
-        userService.saveUser(user);
+		userService.saveUser(user);
 		return "redirect:/home";
 	}
-	
-	@RequestMapping(value={"/login"})
-    public String login(){
-        return "login";
-    }
-	
+
+	@RequestMapping(value = { "/login" })
+	public String login() {
+		return "login";
+	}
+
 	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
 	public String welcomeGET() {
 		return "welcome";

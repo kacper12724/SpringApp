@@ -14,15 +14,15 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Table(name = "dishes")
 @EntityListeners(AuditingEntityListener.class)
 public class Dish {
-	
+
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 
-    @NotBlank
-    private String name;
+	@NotBlank
+	private String name;
 
-    public Long getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -47,6 +47,6 @@ public class Dish {
 	}
 
 	@NotBlank
-    private Integer price;
+	private Integer price;
 
 }
