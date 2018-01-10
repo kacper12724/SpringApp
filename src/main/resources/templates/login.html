@@ -10,7 +10,7 @@
      <form th:action="@{/login}" method="post">
          <div><label><p th:text="#{username}"></p><input type="text" name="username"/> </label></div>
          <div><label><p th:text="#{password}"></p><input type="password" name="password"/> </label></div>
-         <div><input type="submit" value="Sign In"/>    </div>
+         <div><button type="submit" th:text="#{sign_in}"/>    </div>
      </form>
  </body>
 </html>

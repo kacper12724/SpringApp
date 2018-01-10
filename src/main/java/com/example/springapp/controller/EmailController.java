@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.springapp.model.User;
-import com.example.springapp.repository.UserBean;
 import com.example.springapp.repository.UserRepository;
 import com.example.springapp.service.EmailSender;
+import com.example.springapp.session.CartBean;
 
 @Controller
 public class EmailController {
@@ -27,7 +27,7 @@ public class EmailController {
 	@Autowired
 	MessageSource messageSource;
 
-	UserBean userBean;
+	CartBean userBean;
 
 	@RequestMapping(value = "/send_email", method = RequestMethod.POST)
 	public String send(Locale locale) {

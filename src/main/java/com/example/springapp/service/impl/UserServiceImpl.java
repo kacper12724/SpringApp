@@ -1,4 +1,4 @@
-package com.example.springapp.service;
+package com.example.springapp.service.impl;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -11,6 +11,7 @@ import com.example.springapp.model.Role;
 import com.example.springapp.model.User;
 import com.example.springapp.repository.RoleRepository;
 import com.example.springapp.repository.UserRepository;
+import com.example.springapp.service.UserService;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {

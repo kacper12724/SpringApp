@@ -3,7 +3,7 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="default">
 <head>
-<title>Welcome</title>
+<title th:text="#{main_page}"></title>
 </head>
 <body>
 	<h3 style="position: center" th:text="#{welcome_to_main_page}"></h3>
@@ -27,5 +27,27 @@
 		<p th:text="#{send_email}"></p>
 		<input type="submit" value="Send" />
 	</form>
+	<div th:if="${cartContent.isEmpty()}">
+		<a th:href="@{/order}" th:text="#{create_an_order}"></a>
+		<h2 th:text="#{empty_cart}"></h2>
+	</div>
+	<div class="table-responsive" th:if="${!cartContent.isEmpty()}">
+		<h2 th:text="#{cart}"></h2>
+		<table class="table" id="cart-table">
+			<thead>
+				<tr>
+					<th><p th:text="#{dish_name}"></p></th>
+					<th><p th:text="#{dish_price}"></p></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="cartItem : ${cartContent}">
+					<td th:text="${cartItem.name}"></td>
+					<td th:text="${cartItem.price}"></td>
+				</tr>
+			</tbody>
+		</table>
+		<a th:href="@{/order}" th:text="#{edit_order}"></a>
+	</div>
 </body>
 </html>

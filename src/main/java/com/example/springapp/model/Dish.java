@@ -21,6 +21,9 @@ public class Dish {
 
 	@NotBlank
 	private String name;
+	
+	@NotBlank
+	private Integer price;
 
 	public Long getId() {
 		return id;
@@ -45,8 +48,5 @@ public class Dish {
 	public void setPrice(Integer price) {
 		this.price = price;
 	}
-
-	@NotBlank
-	private Integer price;
 
 }

@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="default">
+<head>
+<title th:text="#{dishes_list}"></title>
+</head>
+<body>
+	<div layout:fragment="content" class="row">
+		<div class="col-xs-8 col-md-8">
+			<h2 th:text="#{menu}"></h2>
+			<div class="table-responsive">
+				<table class="table" id="dishes-table">
+					<thead>
+						<tr>
+							<th><p th:text="#{id}"></p></th>
+							<th><p th:text="#{dish_name}"></p></th>
+							<th><p th:text="#{dish_price}"></p></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="dish : ${dishes}">
+							<td th:text="${dish.id}"></td>
+							<td th:text="${dish.name}"></td>
+							<td th:text="${dish.price}"></td>
+							<td>
+								<form action="#" th:action="@{/addToCart/{id}(id=${dish.id})}"
+									method="post">
+									<button type="submit" th:text="#{add_to_cart}"/>
+								</form>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<br />
+			<h2 th:text="#{cart}"></h2>
+			<div class="table-responsive">
+				<table class="table" id="cart-table">
+					<thead>
+						<tr>
+							<th><p th:text="#{dish_name}"></p></th>
+							<th><p th:text="#{dish_price}"></p></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="cartItem : ${cartContent}">
+							<td th:text="${cartItem.name}"></td>
+							<td th:text="${cartItem.price}"></td>
+							<td>
+								<form action="#" th:action="@{/removeFromCart/{id}(id=${cartItem.id})}"
+									method="post">
+									<button type="submit" th:text="#{remove_from_cart}"/>
+								</form>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<a th:href="@{/welcome}" th:text="#{back_to_welcome}"></a>
+</body>
+</html>

@@ -1,10 +1,12 @@
-package com.example.springapp.service;
+package com.example.springapp.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
+
+import com.example.springapp.service.EmailSender;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
