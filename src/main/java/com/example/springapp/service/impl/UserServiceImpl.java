@@ -36,4 +36,9 @@ public class UserServiceImpl implements UserService {
 		return userRepository.findByUsername(username);
 	}
 
+	@Override
+	public User findByRegcode(String code) {
+		return userRepository.findByRegcode(code);
+	}
+
 }

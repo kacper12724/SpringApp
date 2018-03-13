@@ -43,6 +43,12 @@ public class User implements Serializable {
 
 	@NotBlank
 	private String password;
+	
+	@NotBlank
+	private String status;//A-active I-inactive
+	
+	@NotBlank
+	private String regcode;
 
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
@@ -86,6 +92,22 @@ public class User implements Serializable {
 
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getRegcode() {
+		return regcode;
+	}
+
+	public void setRegcode(String regcode) {
+		this.regcode = regcode;
 	}
 
 }

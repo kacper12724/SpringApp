@@ -23,7 +23,7 @@
 			<td th:text="${article.category}">Category</td>
 		</tr>
 	</table>
-	<form th:action="@{/send_email}" method="POST">
+	<form th:action="@{/send_email_order}" method="POST">
 		<p th:text="#{send_email}"></p>
 		<input type="submit" value="Send" />
 	</form>

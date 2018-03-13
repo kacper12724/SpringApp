@@ -25,8 +25,6 @@ public class UserController {
 
 	@Autowired
 	UserRepository userRepository;
-	@Autowired
-	private UserService userService;
 
 	@RequestMapping("/home")
 	public String user(Model model) {

@@ -6,4 +6,6 @@ public interface UserService {
 	public User findByUsername(String username);
 
 	public void saveUser(User user);
+	
+	public User findByRegcode(String code);
 }
