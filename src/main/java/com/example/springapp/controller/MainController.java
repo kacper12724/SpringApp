@@ -1,5 +1,9 @@
 package com.example.springapp.controller;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.springapp.model.User;
+import com.example.springapp.repository.UserRepository;
 import com.example.springapp.service.UserService;
 import com.example.springapp.session.CartBean;
 import com.example.springapp.validator.UserValidator;
@@ -23,6 +28,10 @@ public class MainController {
 
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private UserRepository userRepository;
+
 
 	@Autowired
 	private UserValidator userValidator;
@@ -64,9 +73,11 @@ public class MainController {
 	@RequestMapping(value = "/register/{code}", method = RequestMethod.GET)
 	public String registerLink(@PathVariable(value="code") String code, Model model) {
 		model.addAttribute("regCode", code);
-		User user = userService.findByRegcode(code);
+		User user = userRepository.findByRegcodev(code);
 		if (user != null){
-			
+			if (user.getStatus().equals("I"))
+				userRepository.activateAccount(user.getUsername(), code, "A");
+			//userRepository.activateAccount(user.getUsername(), code);
 		} else {
 		}
 		return "home";

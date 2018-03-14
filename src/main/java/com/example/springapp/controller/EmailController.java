@@ -1,6 +1,9 @@
 package com.example.springapp.controller;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
@@ -70,10 +73,11 @@ public class EmailController {
 		if (bindingResult.hasErrors()) {
 			return "registerUser";
 		}
-		
-		Random ran = new Random();
-		Integer x = ran.nextInt(100)+1;
-		String xString = x.toString();
+
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd-HH:mm:ss");
+		Date date = new Date();
+		System.out.println(dateFormat.format(date).toString());
+		String xString = dateFormat.format(date).toString();
 		
 		user.setRegcode(xString);
 		user.setStatus("I");
