@@ -74,7 +74,7 @@ public class EmailController {
 			return "registerUser";
 		}
 
-		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd-HH:mm:ss");
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
 		Date date = new Date();
 		System.out.println(dateFormat.format(date).toString());
 		String xString = dateFormat.format(date).toString();

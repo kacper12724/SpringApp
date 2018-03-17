@@ -75,6 +75,7 @@ public class MainController {
 		model.addAttribute("regCode", code);
 		User user = userRepository.findByRegcodev(code);
 		if (user != null){
+			System.err.println("1 + " + user.getRegcode() + user.getStatus());
 			if (user.getStatus().equals("I"))
 				userRepository.activateAccount(user.getUsername(), code, "A");
 			//userRepository.activateAccount(user.getUsername(), code);
