@@ -1,0 +1,9 @@
+1. Zakladanie kont. 2 wersje: bez linku aktywacyjnego i z linkiem(konto aktywne po wejsciu w link wyslany na maila).
+2. 2 jezyki.
+3. Logowanie, wylogowywanie.
+4. Hashowanie hasel.
+5. Wyswietlanie zalozonych kont.
+6. Wyswietlanie menu z bazy.
+7. Dodawanie produktow do koszyka, usuwanie, wyswietlanie (bean sesyjny).
+8. Wysylanie maila z lista zakupow.
+...
